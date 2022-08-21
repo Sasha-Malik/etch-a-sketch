@@ -27,7 +27,7 @@ container.addEventListener('mousedown', ()=>{isMouseDown = true;})
 container.addEventListener('mouseup', ()=>{isMouseDown = false;})
 
 
-function something(e){
+function draw(e){
 
     if(this.classList.length !== 2 && isMouseDown == true)
     {    
@@ -40,6 +40,6 @@ const contentHover = document.querySelectorAll('.content');
 
 contentHover.forEach((content) => {
 
-    content.addEventListener('mouseover', something);
+    content.addEventListener('mouseover', draw);
     
 });
