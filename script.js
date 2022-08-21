@@ -3,13 +3,13 @@ console.log("hello");
 
 const container = document.querySelector('.container');
 
-for(let i = 0 ; i < 85 ; i++)
+for(let i = 0 ; i < 40 ; i++)
 { 
 
     const col = document.createElement('div');
     col.classList.add('col');
 
-    for(let j = 0 ; j < 85 ; j++)
+    for(let j = 0 ; j < 40 ; j++)
     { 
 
         const content = document.createElement('div');
@@ -31,15 +31,36 @@ function draw(e){
 
     if(this.classList.length !== 2 && isMouseDown == true)
     {    
-        console.log(this.classList);
         this.classList.add('color');
     }
 }
 
-const contentHover = document.querySelectorAll('.content');
 
+function drawClick(e){
+    
+    if(this.classList.length !== 2)
+        this.classList.add('color');
+    
+}
+
+const contentHover = document.querySelectorAll('.content');
 contentHover.forEach((content) => {
 
     content.addEventListener('mouseover', draw);
-    
+    content.addEventListener('click', drawClick);
 });
+
+function clean(e){
+
+    const contentHover = document.querySelectorAll('.content');
+
+    contentHover.forEach((content) => {
+
+        content.classList.remove('color');
+    
+    });
+
+}
+
+const button = document.querySelector('.clean');
+button.addEventListener('click',clean);
