@@ -1,11 +1,8 @@
-console.log("hello");
-
-
 const container = document.querySelector('.container');
 
+/* making the grid*/
 for(let i = 0 ; i < 40 ; i++)
 { 
-
     const col = document.createElement('div');
     col.classList.add('col');
 
@@ -21,11 +18,13 @@ for(let i = 0 ; i < 40 ; i++)
     container.appendChild(col);
 }
 
+/* checks if mouse is pressed */
 
 let isMouseDown = false;
 container.addEventListener('mousedown', ()=>{isMouseDown = true;})
 container.addEventListener('mouseup', ()=>{isMouseDown = false;})
 
+/* draws when hovering with mouse pressed */
 
 function draw(e){
 
@@ -35,9 +34,9 @@ function draw(e){
     }
 }
 
-
+/* draws while clicking */
 function drawClick(e){
-    
+
     if(this.classList.length !== 2)
         this.classList.add('color');
     
@@ -49,6 +48,8 @@ contentHover.forEach((content) => {
     content.addEventListener('mouseover', draw);
     content.addEventListener('click', drawClick);
 });
+
+/*cleaning the board*/
 
 function clean(e){
 
@@ -64,3 +65,13 @@ function clean(e){
 
 const button = document.querySelector('.clean');
 button.addEventListener('click',clean);
+
+/* help button */
+
+function closeBox(e){
+   const box = document.querySelector('.help');
+   box.remove();
+}
+
+const help = document.querySelector('.helpButton');
+help.addEventListener('click',closeBox);
